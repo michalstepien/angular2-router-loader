@@ -49,7 +49,8 @@ module.exports = function(source, sourcemap) {
     // update the file path for non-ngfactory files
     if (aot && filename.substr(-9) !== moduleSuffix.substr(-9) && isRelativePath) {
       // find the relative dir to file from the genDir
-      var relativeDir = path.relative(path.dirname(resourcePath), path.resolve(genDir));
+      var ppp = path.dirname(resourcePath).replace('Content','dist\\Content');
+      var relativeDir = path.relative(path.dirname(resourcePath), ppp);
 
       // build the relative path from the genDir
       filePath = path.join(relativeDir, filePath);
